@@ -24,6 +24,6 @@
     "fabricloader": ">=${loader_version}",
     "fabric": "*",
     "boids": "*",
-    "minecraft": "${minecraft_version}"
+    "minecraft": "${compat_minecraft_version}"
   }
 }
