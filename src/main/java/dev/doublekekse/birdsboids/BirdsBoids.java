@@ -1,6 +1,7 @@
 package dev.doublekekse.birdsboids;
 
 import dev.doublekekse.birdsboids.entities.bird.Bird;
+import dev.doublekekse.birdsboids.registry.SoundEvents;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
@@ -52,6 +53,8 @@ public class BirdsBoids implements ModInitializer {
 
         Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, id("birds"), BIRDS_CREATIVE_MODE_TAB);
         FabricDefaultAttributeRegistry.register(BIRD, Bird.createMobAttributes());
+
+        SoundEvents.register();
     }
 
     public static ResourceLocation id(String path) {
