@@ -7,7 +7,6 @@ import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
-import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -25,6 +24,7 @@ public class BirdsBoids implements ModInitializer {
     public static final TagKey<Biome> SPAWNS_BIRDS = TagKey.create(Registries.BIOME, id("spawns_birds"));
 
     public static final EntityType<Bird> BIRD = Registry.register(
+
         BuiltInRegistries.ENTITY_TYPE,
         id("bird"),
         EntityType.Builder.of(Bird::new, MobCategory.AMBIENT).sized(1.5f, 0.6f).build()
@@ -43,7 +43,6 @@ public class BirdsBoids implements ModInitializer {
         FabricDefaultAttributeRegistry.register(BIRD, Bird.createMobAttributes());
         Registry.register(BuiltInRegistries.ITEM, id("bird_spawn_egg"), BIRD_ITEM);
 
-        System.out.println(SPAWNS_BIRDS);
         BiomeModifications.addSpawn(BiomeSelectors.tag(SPAWNS_BIRDS), MobCategory.AMBIENT, BIRD, 50, 7, 10);
         SpawnPlacements.register(BIRD, SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING, Bird::checkAnimalSpawnRules);
 
